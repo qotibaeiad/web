@@ -3,91 +3,95 @@
 <head>
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Calculator</title>
+  <title>Calculator</title>
   <style>
     body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
+      min-height: 100vh;
+      background-color: #f4f4f4;
     }
 
-    #calculator {
-      border: 2px solid #ccc;
+    .calculator {
+      background-color: #fff;
       border-radius: 8px;
-      padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
     }
 
-    input {
+    .calculator-screen {
       width: 100%;
       padding: 10px;
-      margin-bottom: 10px;
-      font-size: 18px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      box-sizing: border-box;
+      text-align: right;
+      font-size: 2em;
+      border: none;
+      outline: none;
     }
 
-    button {
-      width: 48px;
-      height: 48px;
-      font-size: 18px;
-      margin: 5px;
-      cursor: pointer;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      background-color: #f8f8f8;
-    }
-
-    button:hover {
-      background-color: #e0e0e0;
-    }
-
-    .row {
+    .calculator-keys {
       display: flex;
+      flex-wrap: wrap;
     }
 
-    .row:last-child {
-      margin-top: 10px;
+    .calculator-btn {
+      width: 25%;
+      padding: 10px;
+      box-sizing: border-box;
+      font-size: 1.5em;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background-color: #f0f0f0;
+      border-bottom: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      float: left;
     }
 
-    .equals {
-      width: 100%;
+    .calculator-btn.operator {
+      background-color: #ff9500;
+      color: #fff;
+    }
+
+    .calculator-btn.double {
+      width: 50%;
+    }
+
+    .calculator-btn.reset {
+      background-color: #acacac;
+      color: #fff;
+    }
+
+    .calculator-btn.reset.double {
+      width: 50%;
     }
   </style>
 </head>
 <body>
-    <div id="calculator">
-        <input type="text" id="display" readonly>
-        <div class="row">
-          <button>7</button>
-          <button>8</button>
-          <button>9</button>
-          <button>/</button>
-        </div>
-        <div class="row">
-          <button>4</button>
-          <button>5</button>
-          <button>6</button>
-          <button>*</button>
-        </div>
-        <div class="row">
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button>-</button>
-        </div>
-        <div class="row">
-          <button>0</button>
-          <button>.</button>
-          <button class="equals">=</button>
-          <button>+</button>
+    <div class="calculator">
+        <input class="calculator-screen" type="text" disabled />
+        <div class="calculator-keys">
+          <button class="calculator-btn reset double">AC</button>
+          <button class="calculator-btn">9</button>
+          <button class="calculator-btn">8</button>
+          <button class="calculator-btn">7</button>
+          <button class="calculator-btn">6</button>
+          <button class="calculator-btn">5</button>
+          <button class="calculator-btn">4</button>
+          <button class="calculator-btn">0</button>
+          <button class="calculator-btn">3</button>
+          <button class="calculator-btn">2</button>
+          <button class="calculator-btn">*</button>
+          <button class="calculator-btn operator">-</button>
+          <button class="calculator-btn">.</button>
+          <button class="calculator-btn">0</button>
+          <button class="calculator-btn operator">+</button>
+          <button class="calculator-btn double operator">=</button>
         </div>
       </div>
-
-    
     <script>
         // custom config for the MTW app 
         const mtwAppConfig = {
