@@ -1,56 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Your Page Title</title>
-    <style>
-        body {
-            background-color: white;
-        }
-        .row{
-            float: left;
-            align-content: center;
-            content: "";
-            box-shadow: 10px 10px 8px black;
-            border-radius:  10px;
-            height: 380px;
-            width: 200px; 
-            padding-bottom: 30px
-        }
-        .button{
-            float: left;
-            height: 50px; 
-            width: 50px;
-            border-radius: 15px;
-            box-shadow: 3px 3px 1x grey;
-            margin: 5px;
-            background-color: #f1ce76;
-        }
-        .button:hover{
-            background-color: white;
-        }
-    </style>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #calculator {
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 18px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 48px;
+      height: 48px;
+      font-size: 18px;
+      margin: 5px;
+      cursor: pointer;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+    }
+
+    button:hover {
+      background-color: #e0e0e0;
+    }
+
+    .row {
+      display: flex;
+    }
+
+    .row:last-child {
+      margin-top: 10px;
+    }
+
+    .equals {
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-    <h1>Calculator</h1>
-    <div class="row">
-        <div class="=text" style="height: 50px; width: 200px; text-align: end;">1+2</div>
-        <button type="button" class="button">7</button>
-        <button type="button" class="button">8</button>
-        <button type="button" class="button">9</button>
-        <button type="button" class="button">6</button>
-        <button type="button" class="button">5</button>
-        <button type="button" class="button">4</button>
-        <button type="button" class="button">1</button>       
-        <button type="button" class="button">2</button>        
-        <button type="button" class="button">3</button>        
-        <button type="button" class="button">.</button>      
-        <button type="button" class="button">0</button>
-        <button type="button" class="button">+</button>
-        <button type="button" class="button">X</button>
-        <button type="button" class="button">/</button>
-        <button type="button" class="button">-</button>
-        <button type="button" style="width: 200px;height: 50px; margin: 5px; border-radius: 5px;">=</button>
-    </div>
+    <div id="calculator">
+        <input type="text" id="display" readonly>
+        <div class="row">
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button>/</button>
+        </div>
+        <div class="row">
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>*</button>
+        </div>
+        <div class="row">
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>-</button>
+        </div>
+        <div class="row">
+          <button>0</button>
+          <button>.</button>
+          <button class="equals">=</button>
+          <button>+</button>
+        </div>
+      </div>
 
     
     <script>
