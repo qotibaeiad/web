@@ -19,7 +19,7 @@
     .calculator {
       background-color: #fff;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
       overflow: hidden;
     }
 
@@ -84,23 +84,20 @@
           <button class="calculator-btn" onclick="appendToScreen('6')">6</button>
           <button class="calculator-btn" onclick="appendToScreen('5')">5</button>
           <button class="calculator-btn" onclick="appendToScreen('4')">4</button>
-          <button class="calculator-btn" onclick="appendToScreen('0')">3</button>
-          <button class="calculator-btn" onclick="appendToScreen('3')">2</button>
-          <button class="calculator-btn" onclick="appendToScreen('2')">1</button>
+          <button class="calculator-btn" onclick="appendToScreen('3')">3</button>
+          <button class="calculator-btn" onclick="appendToScreen('2')">2</button>
+          <button class="calculator-btn" onclick="appendToScreen('1')">1</button>
           <button class="calculator-btn" onclick="appendToScreen('0')">0</button>
           <button class="calculator-btn" onclick="appendToScreen('-')">-</button>
-          <button class="calculator-btn" onclick="appendToScreen('*')">*</button>
-          <button class="calculator-btn" onclick="appendToScreen('/')">/</button>
+          <button class="calculator-btn" onclick="appendToScreen('*')"> <span>&#215;</span></button>
+          <button class="calculator-btn" onclick="appendToScreen('/')"><span>&#247;</span></button>
           <button class="calculator-btn" onclick="appendToScreen('+')">+</button>
           <button class="calculator-btn" onclick="evaluateMathExpression()">=</button>
-          <button class="calculator-btn" onclick="appendToScreen('e')">e</button>
-          <button class="calculator-btn" onclick="appendToScreen('pi')">pi</button>
-          <button class="calculator-btn" onclick="appendToScreen('2and')">2and</button>
-          <button class="calculator-btn" onclick="appendToScreen('mod')">mod</button>
-          <button class="calculator-btn" onclick="appendToScreen('-')">-</button>
-          <button class="calculator-btn" onclick="appendToScreen('*')">*</button>
-          <button class="calculator-btn" onclick="appendToScreen('/')">/</button>
-          <button class="calculator-btn" onclick="appendToScreen('+')">+</button>
+          <button class="calculator-btn" onclick="appendToScreen('sqrt')"><span>&#8730;</span></button>
+          <button class="calculator-btn" onclick=""><span>&#101;</span></button>
+          <button class="calculator-btn" onclick="pi"><span>&#8508;</span></button>
+          <button class="calculator-btn" onclick="">mod</button>
+
         </div>
       </div>
       <script>
@@ -108,9 +105,13 @@
             var calculatorScreen = document.querySelector('.calculator-screen');
             calculatorScreen.value = '';
         }
+
         function appendToScreen(value) {
             var calculatorScreen = document.querySelector('.calculator-screen');
-            if (checkLastValue(value)) {
+            if (value === 'sqrt') {
+                // If the button is the square root button, calculate the square root
+                calculatorScreen.value = Math.sqrt(parseFloat(calculatorScreen.value)) || '';
+            } else if (checkLastValue(value)) {
                 calculatorScreen.value += value;
             }
         }
@@ -131,27 +132,28 @@
             }
             return true;
         }
+
         function evaluateMathExpression() {
             var calculatorScreen = document.querySelector('.calculator-screen');
-expression=calculatorScreen.value
-    try {
-        // Validate the expression (optional)
-        if (/[^0-9+\-*/.]/.test(expression)) {
-            throw new Error('Invalid characters in the expression');
-        }
-        // Use eval() to evaluate the expression
-        const result = eval(expression);
-        // Check if the result is a finite number
-        if (!isFinite(result)) {
-            throw new Error('Invalid mathematical result');
-        }
+            var expression = calculatorScreen.value;
+            try {
+                // Validate the expression (optional)
+                if (/[^0-9+\-*/.]/.test(expression)) {
+                    throw new Error('Invalid characters in the expression');
+                }
+                // Use eval() to evaluate the expression
+                const result = eval(expression);
+                // Check if the result is a finite number
+                if (!isFinite(result)) {
+                    throw new Error('Invalid mathematical result');
+                }
 
-       calculatorScreen.value=result
-    } catch (error) {
-        console.error('Error evaluating expression:', error.message);
-        return null; // or handle the error accordingly
-    }
-}
+                calculatorScreen.value = result;
+            } catch (error) {
+                console.error('Error evaluating expression:', error.message);
+                return null; // or handle the error accordingly
+            }
+        }
     </script>
     <script>
         // custom config for the MTW app 
