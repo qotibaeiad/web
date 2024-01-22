@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Your Page Title</title>
+    <style>
+        body {
+            background-color: white;
+        }
+        .row{
+            float: left;
+            align-content: center;
+            content: "";
+            box-shadow: 10px 10px 8px black;
+            border-radius:  10px;
+            height: 380px;
+            width: 200px; 
+            padding-bottom: 30px
+        }
+        .button{
+            float: left;
+            height: 50px; 
+            width: 50px;
+            border-radius: 15px;
+            box-shadow: 3px 3px 1x grey;
+            margin: 5px;
+            background-color: #f1ce76;
+        }
+        .button:hover{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div class="row">
+        <div class="=text" style="height: 50px; width: 200px; text-align: end;">1+2</div>
+        <button type="button" class="button">7</button>
+        <button type="button" class="button">8</button>
+        <button type="button" class="button">9</button>
+        <button type="button" class="button">6</button>
+        <button type="button" class="button">5</button>
+        <button type="button" class="button">4</button>
+        <button type="button" class="button">1</button>       
+        <button type="button" class="button">2</button>        
+        <button type="button" class="button">3</button>        
+        <button type="button" class="button">.</button>      
+        <button type="button" class="button">0</button>
+        <button type="button" class="button">+</button>
+        <button type="button" class="button">X</button>
+        <button type="button" class="button">/</button>
+        <button type="button" class="button">-</button>
+        <button type="button" style="width: 200px;height: 50px; margin: 5px; border-radius: 5px;">=</button>
+    </div>
+
+    
+    <script>
+        // custom config for the MTW app 
+        const mtwAppConfig = {
+            border: true // app border in the MTW page                    
+        }
+
+        ///////////////////////////////////////////////////////
+        // implement this functions in order to use private API        
+        const sendPrivateApiRequest = async () => {
+            // your code here:
+            // sendRequestToParent({ cat: 'getAssets' })
+        }        
+
+        const acceptPrivateApiResponse = async (data) => {
+            // process received data here:
+            // console.log(data)
+        }
+
+        // use this in order to send on document load
+        document.addEventListener('DOMContentLoaded', () => {
+            // your code here:
+            //sendRequestToParent({ method: 'getAssets' })
+        })
+
+    </script>
+    <script src="https://morethanwallet.com/appstore/index.js"></script>
+
+</body>
+</html>
