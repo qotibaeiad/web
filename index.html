@@ -24,7 +24,7 @@
     }
 
     .calculator-screen {
-      width: calc(100% - 20px); /* Adjusted width to account for padding */
+      width: calc(100% - 20px);
       padding: 10px;
       text-align: right;
       font-size: 2em;
@@ -90,13 +90,13 @@
           <button class="calculator-btn" onclick="appendToScreen('0')">0</button>
           <button class="calculator-btn" onclick="appendToScreen('-')">-</button>
           <button class="calculator-btn" onclick="appendToScreen('*')"> <span>&#215;</span></button>
-          <button class="calculator-btn" onclick="appendToScreen('/')"><span>&#247;</span></button>
+          <button class="calculator-btn" onclick="appendToScreen(Math.exp(x))"><span>&#101;</span></button>
           <button class="calculator-btn" onclick="appendToScreen('+')">+</button>
           <button class="calculator-btn" onclick="evaluateMathExpression()">=</button>
           <button class="calculator-btn" onclick="appendToScreen('sqrt')"><span>&#8730;</span></button>
-          <button class="calculator-btn" onclick=""><span>&#101;</span></button>
+          <button class="calculator-btn" onclick="appendToScreen('/')"><span>&#247;</span></button>
           <button class="calculator-btn" onclick="pi"><span>&#8508;</span></button>
-          <button class="calculator-btn" onclick="">mod</button>
+          <button class="calculator-btn" onclick="appendToScreen('**')">power</button>
 
         </div>
       </div>
@@ -109,7 +109,6 @@
         function appendToScreen(value) {
             var calculatorScreen = document.querySelector('.calculator-screen');
             if (value === 'sqrt') {
-                // If the button is the square root button, calculate the square root
                 calculatorScreen.value = Math.sqrt(parseFloat(calculatorScreen.value)) || '';
             } else if (checkLastValue(value)) {
                 calculatorScreen.value += value;
@@ -117,21 +116,23 @@
         }
 
         function checkLastValue(value) {
-            var calculatorScreen = document.querySelector('.calculator-screen');
-            var inputValue = calculatorScreen.value;
+    var calculatorScreen = document.querySelector('.calculator-screen');
+    var inputValue = calculatorScreen.value;
 
-            if (inputValue.length > 0) {
-                var lastCharacter = inputValue[inputValue.length - 1];
+    if (inputValue.length > 2) {
+        var lastTwoCharacters = inputValue.slice(-2);
+        var lastCharacter = inputValue[inputValue.length - 1];
 
-                if (lastCharacter === '-' || lastCharacter === '*' || lastCharacter === '.' || lastCharacter === '+' || lastCharacter === '/') {
-                    if (value !== '-' && value !== '*' && value !== '.' && value !== '+' && value !== '/') {
-                        return true;
-                    }
-                    return false;
-                }
-            }
-            return true;
+        if (isNaN(lastTwoCharacters) && isNaN(value)) {
+            return false;
+        } else if (lastCharacter === '.' && value === '.') {
+            return false;
         }
+    }
+
+    return true;
+}
+
 
         function evaluateMathExpression() {
             var calculatorScreen = document.querySelector('.calculator-screen');
