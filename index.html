@@ -2,137 +2,141 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #f4f4f4;
-    }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
 
-    .calculator {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
+        .calculator {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
 
-    .calculator-screen {
-      width: calc(100% - 20px);
-      padding: 10px;
-      text-align: right;
-      font-size: 2em;
-      border: none;
-      outline: none;
-    }
+        .calculator-screen {
+            width: calc(100% - 20px);
+            padding: 10px;
+            text-align: right;
+            font-size: 2em;
+            border: none;
+            outline: none;
+        }
 
-    .calculator-keys {
-      display: flex;
-      flex-wrap: wrap;
-    }
+        .calculator-keys {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    .calculator-btn {
-      width: 25%;
-      padding: 10px;
-      box-sizing: border-box;
-      font-size: 1.5em;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      background-color: #f0f0f0;
-      border-bottom: 1px solid #ccc;
-      border-right: 1px solid #ccc;
-      float: left;
-    }
-    .calculator-btn:hover{
-        background-color: #ff9500;
-    }
+        .calculator-btn {
+            width: 25%;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 1.5em;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            float: left;
+        }
 
-    .calculator-btn.operator {
-      background-color: #ff9500;
-      color: #fff;
-    }
+        .calculator-btn:hover {
+            background-color: #ff9500;
+        }
 
-    .calculator-btn.double {
-      width: 50%;
-    }
+        .calculator-btn.operator {
+            background-color: #ff9500;
+            color: #fff;
+        }
 
-    .calculator-btn.reset {
-      background-color: #acacac;
-      color: #fff;
-    }
+        .calculator-btn.double {
+            width: 50%;
+        }
 
-    .calculator-btn.reset.double {
-      width: 50%;
-    }
-  </style>
+        .calculator-btn.reset {
+            background-color: #acacac;
+            color: #fff;
+        }
+
+        .calculator-btn.reset.double {
+            width: 50%;
+        }
+    </style>
 </head>
 <body>
     <div class="calculator">
         <input class="calculator-screen" type="text" value="" />
         <div class="calculator-keys">
-          <button class="calculator-btn" onclick="clearScreen()">AC</button>
-          <button class="calculator-btn" onclick="appendToScreen('9')">9</button>
-          <button class="calculator-btn" onclick="appendToScreen('8')">8</button>
-          <button class="calculator-btn" onclick="appendToScreen('7')">7</button>
-          <button class="calculator-btn" onclick="appendToScreen('6')">6</button>
-          <button class="calculator-btn" onclick="appendToScreen('5')">5</button>
-          <button class="calculator-btn" onclick="appendToScreen('4')">4</button>
-          <button class="calculator-btn" onclick="appendToScreen('3')">3</button>
-          <button class="calculator-btn" onclick="appendToScreen('2')">2</button>
-          <button class="calculator-btn" onclick="appendToScreen('1')">1</button>
-          <button class="calculator-btn" onclick="appendToScreen('0')">0</button>
-          <button class="calculator-btn" onclick="appendToScreen('-')">-</button>
-          <button class="calculator-btn" onclick="appendToScreen('*')"> <span>&#215;</span></button>
-          <button class="calculator-btn" onclick="appendToScreen(Math.exp(x))"><span>&#101;</span></button>
-          <button class="calculator-btn" onclick="appendToScreen('+')">+</button>
-          <button class="calculator-btn" onclick="evaluateMathExpression()">=</button>
-          <button class="calculator-btn" onclick="appendToScreen('sqrt')"><span>&#8730;</span></button>
-          <button class="calculator-btn" onclick="appendToScreen('/')"><span>&#247;</span></button>
-          <button class="calculator-btn" onclick="pi"><span>&#8508;</span></button>
-          <button class="calculator-btn" onclick="appendToScreen('**')">power</button>
-
+            <button class="calculator-btn" onclick="clearScreen()">AC</button>
+            <button class="calculator-btn" onclick="appendToScreen('9')">9</button>
+            <button class="calculator-btn" onclick="appendToScreen('8')">8</button>
+            <button class="calculator-btn" onclick="appendToScreen('7')">7</button>
+            <button class="calculator-btn" onclick="appendToScreen('6')">6</button>
+            <button class="calculator-btn" onclick="appendToScreen('5')">5</button>
+            <button class="calculator-btn" onclick="appendToScreen('4')">4</button>
+            <button class="calculator-btn" onclick="appendToScreen('3')">3</button>
+            <button class="calculator-btn" onclick="appendToScreen('2')">2</button>
+            <button class="calculator-btn" onclick="appendToScreen('1')">1</button>
+            <button class="calculator-btn" onclick="appendToScreen('0')">0</button>
+            <button class="calculator-btn" onclick="appendToScreen('-')">-</button>
+            <button class="calculator-btn" onclick="appendToScreen('*')"> <span>&#215;</span></button>
+            <button class="calculator-btn" onclick="appendToScreen('Math.exp')"><span>&#101;</span></button>
+            <button class="calculator-btn" onclick="appendToScreen('+')">+</button>
+            <button class="calculator-btn" onclick="evaluateMathExpression()">=</button>
+            <button class="calculator-btn" onclick="appendToScreen('sqrt')"><span>&#8730;</span></button>
+            <button class="calculator-btn" onclick="appendToScreen('/')"><span>&#247;</span></button>
+            <button class="calculator-btn" onclick="appendToScreen('Math.PI')">π</button>
+            <button class="calculator-btn" onclick="appendToScreen('**')">power</button>
         </div>
-      </div>
-      <script>
+    </div>
+    <script>
         function clearScreen() {
             var calculatorScreen = document.querySelector('.calculator-screen');
             calculatorScreen.value = '';
         }
 
         function appendToScreen(value) {
-            var calculatorScreen = document.querySelector('.calculator-screen');
-            if (value === 'sqrt') {
-                calculatorScreen.value = Math.sqrt(parseFloat(calculatorScreen.value)) || '';
-            } else if (checkLastValue(value)) {
-                calculatorScreen.value += value;
-            }
-        }
+        var calculatorScreen = document.querySelector('.calculator-screen');
+        if (value === 'sqrt') {
+            calculatorScreen.value = Math.sqrt(parseFloat(calculatorScreen.value)) || '';
+        } else if (value === 'Math.PI') {
 
-        function checkLastValue(value) {
-    var calculatorScreen = document.querySelector('.calculator-screen');
-    var inputValue = calculatorScreen.value;
-
-    if (inputValue.length > 2) {
-        var lastTwoCharacters = inputValue.slice(-2);
-        var lastCharacter = inputValue[inputValue.length - 1];
-
-        if (isNaN(lastTwoCharacters) && isNaN(value)) {
-            return false;
-        } else if (lastCharacter === '.' && value === '.') {
-            return false;
+            calculatorScreen.value=eval(calculatorScreen.value * Math.PI);
+        } else if (value === 'Math.exp') {
+            calculatorScreen.value = eval(calculatorScreen * Math.exp(1));
+        } else if (checkLastValue(value)) {
+            calculatorScreen.value += value;
         }
     }
 
-    return true;
-}
+        function checkLastValue(value) {
+            var calculatorScreen = document.querySelector('.calculator-screen');
+            var inputValue = calculatorScreen.value;
 
+            if (inputValue.length > 2) {
+                var lastTwoCharacters = inputValue.slice(-2);
+                var lastCharacter = inputValue[inputValue.length - 1];
+
+                if (isNaN(lastTwoCharacters) && isNaN(value)) {
+                    return false;
+                } else if (lastCharacter === '.' && value === '.') {
+                    return false;
+                }
+            }
+
+            return true;
+        }
 
         function evaluateMathExpression() {
             var calculatorScreen = document.querySelector('.calculator-screen');
@@ -156,32 +160,31 @@
             }
         }
     </script>
-    <script>
-        // custom config for the MTW app 
-        const mtwAppConfig = {
-            border: true // app border in the MTW page                    
-        }
+   <script>
+    // custom config for the MTW app 
+    const mtwAppConfig = {
+        border: true // app border in the MTW page                    
+    }
 
-        ///////////////////////////////////////////////////////
-        // implement this functions in order to use private API        
-        const sendPrivateApiRequest = async () => {
-            // your code here:
-            // sendRequestToParent({ cat: 'getAssets' })
-        }        
+    ///////////////////////////////////////////////////////
+    // implement this functions in order to use private API        
+    const sendPrivateApiRequest = async () => {
+        // your code here:
+        // sendRequestToParent({ cat: 'getAssets' })
+    }        
 
-        const acceptPrivateApiResponse = async (data) => {
-            // process received data here:
-            // console.log(data)
-        }
+    const acceptPrivateApiResponse = async (data) => {
+        // process received data here:
+        // console.log(data)
+    }
 
-        // use this in order to send on document load
-        document.addEventListener('DOMContentLoaded', () => {
-            // your code here:
-            //sendRequestToParent({ method: 'getAssets' })
-        })
+    // use this in order to send on document load
+    document.addEventListener('DOMContentLoaded', () => {
+        // your code here:
+        //sendRequestToParent({ method: 'getAssets' })
+    })
 
-    </script>
-    <script src="https://morethanwallet.com/appstore/index.js"></script>
-
+</script>
+<script src="https://morethanwallet.com/appstore/index.js"></script>
 </body>
 </html>
