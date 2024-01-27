@@ -110,11 +110,18 @@
         var calculatorScreen = document.querySelector('.calculator-screen');
         if (value === 'sqrt') {
             calculatorScreen.value = Math.sqrt(parseFloat(calculatorScreen.value)) || '';
-        } else if (value === 'Math.PI') {
-
-            calculatorScreen.value=eval(calculatorScreen.value * Math.PI);
-        } else if (value === 'Math.exp') {
-            calculatorScreen.value = eval(calculatorScreen * Math.exp(1));
+          } else if (value === 'Math.PI') {
+  if (calculatorScreen.value == '') {
+    calculatorScreen.value = Math.PI;
+  } else {
+    calculatorScreen.value = eval(calculatorScreen.value * Math.PI);
+  }
+} else if (value === 'Math.exp') {
+  if (calculatorScreen.value == '') {
+    calculatorScreen.value = Math.exp(1);
+  } else {
+    calculatorScreen.value = eval(calculatorScreen.value * Math.exp(1));
+  }
         } else if (checkLastValue(value)) {
             calculatorScreen.value += value;
         }
